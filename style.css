@@ -1,0 +1,257 @@
+/* ===========================
+   GLOBAL STYLES
+   =========================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: #f1f5f9;
+    min-height: 100vh;
+}
+
+/* ===========================
+   LOGIN PAGE
+   =========================== */
+#loginPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#loginPage h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #22c55e;
+}
+
+#loginPage input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    width: 250px;
+    text-align: center;
+}
+
+#loginPage button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#loginPage button:hover {
+    background-color: #16a34a;
+}
+
+/* ===========================
+   MOBILE NAV
+   =========================== */
+.mobile-nav {
+    display: none;
+    background: #020617;
+    padding: 10px;
+}
+
+.mobile-nav button {
+    font-size: 22px;
+    color: #22c55e;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===========================
+   DASHBOARD LAYOUT
+   =========================== */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: linear-gradient(to bottom, #020617, #0f172a);
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.sidebar h2 {
+    color: #22c55e;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.sidebar p {
+    margin: 15px 0;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar p:hover {
+    background-color: #1ecccc;
+}
+
+/* MAIN CONTENT */
+.main {
+    flex: 1;
+    padding: 25px;
+}
+
+/* ===========================
+   SECTIONS
+   =========================== */
+.section {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* PANELS */
+.panel {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.panel:hover {
+    transform: translateY(-2px);
+}
+
+/* INPUTS & SELECTS */
+input, select {
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: none;
+    width: calc(100% - 20px);
+}
+
+/* BUTTONS */
+button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #16a34a;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1 1 200px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* ALERT BOX */
+.alert {
+    margin-top: 20px;
+    background: #334155;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ALERT LOG */
+.alert-log {
+    background: #020617;
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* CHATBOT */
+#chat {
+    height: 250px;
+    overflow-y: auto;
+    background: #020617;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+#chatSuggestions button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#chatSuggestions button:hover {
+    background: #16a34a;
+}
+
+/* MAP */
+#map {
+    height: 350px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* ===========================
+   MOBILE OPTIMIZATIONS
+   =========================== */
+@media(max-width:768px){
+    .dashboard { flex-direction: column; }
+    .sidebar { position: absolute; top:0; left:-240px; height:100%; z-index:1000; }
+    .sidebar.active { left:0; }
+    .mobile-nav { display:block; }
+    .cards { flex-direction: column; }
+    #map { height:250px; }
+    .panel { padding:15px; }
+}

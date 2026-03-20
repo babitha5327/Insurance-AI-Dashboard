@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InsureAI Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+    <h2>🔐 Login</h2>
+    <input type="text" id="username" placeholder="Enter Name">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav">
+        <button onclick="toggleMenu()">☰ Menu</button>
+    </div>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar" id="sidebar">
+            <h2>⚡ InsureAI</h2>
+            <p onclick="showSection('home')">Dashboard</p>
+            <p onclick="showSection('analytics')">Analytics</p>
+            <p onclick="showSection('alerts')">Fraud Alerts</p>
+            <p onclick="showSection('chatbot')">AI Chatbot</p>
+        </div>
+
+        <div class="main">
+
+            <!-- DASHBOARD -->
+            <div id="home" class="section">
+                <h1>📊 Dashboard</h1>
+
+                <div class="panel">
+                    <input type="number" id="earnings" placeholder="Today's Earnings ₹">
+                    <input type="number" id="avg" placeholder="Average Earnings ₹">
+                    <select id="weather">
+                        <option value="normal">Normal</option>
+                        <option value="rain">Heavy Rain</option>
+                        <option value="pollution">Pollution</option>
+                    </select>
+                    <select id="movement">
+                        <option value="moving">Moving</option>
+                        <option value="idle">Idle</option>
+                    </select>
+                    <button onclick="analyze()">Run AI Analysis</button>
+                </div>
+
+                <!-- Premium & Payout -->
+                <div class="panel">
+                    <h3>💰 Weekly Premium & Payout Simulator</h3>
+                    <label>Base Earnings (₹/week):</label>
+                    <input type="number" id="baseEarnings" placeholder="e.g., 5000">
+                    <label>Disruption Severity (1-5):</label>
+                    <input type="number" id="severity" min="1" max="5" placeholder="1-5">
+                    <button onclick="calculatePremium()">Calculate Premium</button>
+                    <p>Calculated Premium: ₹<span id="premium">0</span></p>
+                    <p>Estimated Payout on Disruption: ₹<span id="payoutSim">0</span></p>
+                </div>
+
+                <!-- Market Crash -->
+                <div class="panel">
+                    <h3>⚠️ Market Crash Simulator</h3>
+                    <button onclick="simulateMarketCrash()">Run Market Crash</button>
+                </div>
+
+                <!-- Dashboard Cards -->
+                <div class="cards">
+                    <div class="card">Avg Risk: <span id="risk">0</span></div>
+                    <div class="card">Fraud Alerts: <span id="fraud">-</span></div>
+                    <div class="card">Total Payout: <span id="payout">-</span></div>
+                    <div class="card">Trust: <span id="trust">0%</span></div>
+                </div>
+
+                <div class="alert" id="alertBox">System Normal</div>
+            </div>
+
+            <!-- ANALYTICS -->
+            <div id="analytics" class="section hidden">
+                <h1>📊 Analytics</h1>
+                <h3>Earnings Chart</h3>
+                <canvas id="chart"></canvas>
+                <h3>Worker Location</h3>
+                <div id="map"></div>
+            </div>
+
+            <!-- ALERTS -->
+            <div id="alerts" class="section hidden">
+                <h1>🚨 Fraud Alerts</h1>
+                <div id="alertLog" class="alert-log"></div>
+            </div>
+
+            <!-- CHATBOT -->
+            <div id="chatbot" class="section hidden">
+                <h1>🤖 AI Assistant</h1>
+                <select id="lang">
+                    <option value="en">English</option>
+                    <option value="ta">Tamil</option>
+                </select>
+                <div id="chat"></div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Ask something...">
+                    <button onclick="chat()">Send</button>
+                    <button onclick="startVoice()">🎤</button>
+                </div>
+                <div id="chatSuggestions" style="margin-top:5px;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

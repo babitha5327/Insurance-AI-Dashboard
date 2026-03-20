@@ -22,8 +22,11 @@ Project Structure
 insureai-dashboard/
 │
 ├── index.html            # Main HTML file
+
 ├── style.css             # All styles for dashboard
+
 ├── script.js             # JavaScript logic
+
 ├── README.md             # This file
 
 You can add screenshots here to make your repo visually appealing. Example:

@@ -21,6 +21,7 @@ Responsive Design: Works beautifully on desktop and mobile devices.
 Project Structure
 insureai-dashboard/
 │
+|
 ├── index.html            # Main HTML file
 
 ├── style.css             # All styles for dashboard
